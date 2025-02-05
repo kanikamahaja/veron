@@ -1,0 +1,58 @@
+.feature-section {
+    background: black;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Neon Text Effect */
+.neon-text {
+    text-shadow: 0px 0px 10px #00eaff, 0px 0px 20px #00eaff;
+}
+
+/* Futuristic Button */
+.btn-neon {
+    background: #00eaff;
+    color: #0f172a;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px #00eaff, 0 0 40px #00eaff;
+}
+
+.btn-neon:hover {
+    background: white;
+    color: #0f172a;
+    transform: scale(1.05);
+}
+
+/* Neon Border Around Image */
+.neon-border {
+    border: 3px solid #00eaff;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0px 0px 15px #00eaff;
+    transition: all 0.3s ease-in-out;
+}
+
+.neon-border:hover {
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.neon-border img {
+    animation: floating 4s infinite ease-in-out;
+}
+

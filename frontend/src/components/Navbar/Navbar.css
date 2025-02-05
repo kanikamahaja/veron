@@ -1,236 +1,47 @@
-:root {
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --accent-color: #ffffff;
-    --text-light: #ffffff;
-    --text-dark: #000000;
-    --transition-speed: 0.3s;
+.navbar {
+    width: 100%;
+    padding: 20px 0;
+    background: black;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-.nav-header {
-    background-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1000;
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    0% {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    100% {
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
-    }
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2%;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo-text {
-    color: white;
+.logo {
     font-size: 1.5rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-}
-
-.text-gradient {
-    background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-left: 0.25rem;
-    font-weight: 700;
 }
 
 .nav-links {
     display: flex;
-    transition: all var(--transition-speed) ease;
-    animation: fadeIn 1s ease-in-out forwards;
+    gap: 40px;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+.nav-links li {
+    list-style: none;
 }
 
-.nav-list {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-list li {
-    animation: dropIn 0.5s ease-in-out forwards;
-    animation-delay: calc(var(--i) * 0.2s);
-}
-
-@keyframes dropIn {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.nav-link {
-    color: var(--text-light);
-    font-weight: 500;
-    position: relative;
-    padding: 0.5rem 0;
+.nav-links a {
     text-decoration: none;
-    transition: color var(--transition-speed) ease;
-    animation: flash 2s ease-in-out infinite alternate;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
 }
 
-@keyframes flash {
-    0% {
-        color: var(--text-light);
-    }
-
-    50% {
-        color: var(--accent-color);
-    }
-
-    100% {
-        color: var(--text-light);
-    }
+.nav-links a:hover {
+    color: #0ff; /* Neon effect */
+    text-shadow: 0px 0px 10px #0ff;
+    transform: scale(1.05);
 }
 
-.nav-link span {
-    position: relative;
+.btn-neon {
+    padding: 6px 12px;
+    background: #0ff;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0ff;
+    transition: all 0.3s ease-in-out;
 }
 
-.nav-link span::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    transition: width var(--transition-speed) ease;
-}
-
-.nav-link:hover span::after {
-    width: 100%;
-}
-
-.nav-link:hover {
-    color: var(--accent-color);
-    animation: shake 0.5s ease-in-out forwards;
-}
-
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-2px);
-    }
-
-    50% {
-        transform: translateX(2px);
-    }
-
-    75% {
-        transform: translateX(-2px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.login-button {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    color: var(--text-light);
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all var(--transition-speed) ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.login-button:hover {
-    transform: translateY(-2px);
-    transition: transform 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-}
-
-.menu-toggle {
-    color: var(--text-light);
-    font-size: 1.8rem;
-    cursor: pointer;
-    display: none;
-    transition: color var(--transition-speed) ease;
-    animation: spin 2s linear infinite;
-}
-
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 1rem;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--primary-color);
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 0;
-        transform: translateY(-100%);
-        opacity: 0;
-        animation: none;
-    }
-
-    .nav-links.open {
-        transform: translateY(0);
-        opacity: 1;
-        animation: slideIn 1s ease-in-out forwards;
-    }
-
-    .nav-list {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-        animation: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .login-button {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-    }
+.btn-neon:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 16px #0ff;
 }

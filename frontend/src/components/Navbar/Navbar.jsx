@@ -1,66 +1,48 @@
-import React, { useState } from 'react';
-import './Navbar.css';
+import React from "react";
+import { motion } from "framer-motion";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  return (
-    <header className="nav-header">
-      <nav className="nav-container">
-        <div className="logo-container">
-          <h1 className="logo-text">
-            Vision <span className="text-gradient">Sketch AI</span>
-          </h1>
-        </div>
-
-        <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-          <ul className="nav-list">
-            <li>
-              <a className="nav-link" href="#">
-                <span>Home</span>
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="#">
-                <span>Whiteboard</span>
-                <ion-icon name="star" className="featured-icon"></ion-icon>
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="#">
-                <span>Community</span>
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="#">
-                <span>Feedback</span>
-              </a>
-            </li>
-            <li>
-              <a className="nav-link" href="#">
-                <span>Contact Us</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="nav-actions">
-          <button className="login-button">
-            Login/Signup
-          </button>
-          <ion-icon
-            onClick={toggleMenu}
-            name={isMenuOpen ? "close" : "menu"}
-            className="menu-toggle"
-          ></ion-icon>
-        </div>
-      </nav>
-    </header>
-  );
+    return (
+        <motion.nav 
+            className="navbar"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+        >
+            <div className="container mx-auto px-6 flex justify-between items-center">
+                <motion.div 
+                    className="logo"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                >
+                    <h1 className="logo-text">Vision <span className="text-gradient">Sketch AI</span></h1>
+                </motion.div>
+                
+                <motion.ul 
+                    className="nav-links"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                >
+                    <li><a href="#" className="text-gray-300">Home</a></li>
+                    <li><a href="#" className="text-gray-300">Whiteboard</a></li>
+                    <li><a href="#" className="text-gray-300">Community</a></li>
+                    <li><a href="#" className="text-gray-300">Feedback</a></li>
+                    <li><a href="#" className="text-gray-300">Contact Us</a></li>
+                </motion.ul>
+                
+                <motion.button 
+                    className="btn-neon"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    Get Started
+                </motion.button>
+            </div>
+        </motion.nav>
+    );
 };
 
 export default Navbar;
