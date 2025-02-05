@@ -12,11 +12,11 @@ const Navbar = () => {
     <header className="nav-header">
       <nav className="nav-container">
         <div className="logo-container">
-          <h1 className="logo logo-text" style={{color: 'white'}}>
-            Vision <span className="sketch-ai">Sketch AI</span>
+          <h1 className="logo-text">
+            Vision <span className="text-gradient">Sketch AI</span>
           </h1>
         </div>
-        
+
         <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <ul className="nav-list">
             <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        
+
         <div className="nav-actions">
           <button className="login-button">
             Login/Signup

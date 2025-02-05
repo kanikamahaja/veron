@@ -35,21 +35,25 @@
 }
 
 .logo-container {
-    transition: transform var(--transition-speed) ease-out;
+    display: flex;
+    align-items: center;
 }
 
-.logo {
-    font-family: 'Lato', sans-serif;
+.logo-text {
+    color: white;
+    font-size: 1.5rem;
     font-weight: 600;
-    font-size: 1.3rem;
-    letter-spacing: 0.05rem;
-    color: var(--accent-color);
+    display: flex;
+    align-items: center;
 }
 
-.logo:hover {
-    transform: scale(1.2);
-    filter: brightness(105%);
-    transition: transform 0.2s ease-out, filter 0.2s ease-out;
+.text-gradient {
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-left: 0.25rem;
+    font-weight: 700;
 }
 
 .nav-links {
